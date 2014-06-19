@@ -6,8 +6,27 @@
   "scripts": {
     "test": "test"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chris-skud/deepkeyfishing.git"
+  },
   "author": "chris-skud",
-  "license": "BSD",
-  "dependencies": {}
+  "license": "Apache-2.0",
+  "dependencies": {},
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "devDependencies": {
+    "assert": "^1.1.1",
+    "mocha": "^1.20.1"
+  },
+  "keywords": [
+    "object",
+    "keys"
+  ],
+  "bugs": {
+    "url": "https://github.com/chris-skud/deepkeyfishing/issues"
+  },
+  "homepage": "https://github.com/chris-skud/deepkeyfishing"
 }
