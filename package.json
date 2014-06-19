@@ -1,0 +1,13 @@
+{
+  "name": "deepkeyfishing",
+  "version": "0.0.1",
+  "description": "Takes a JavaScript object, returns array of all enumerable keys",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": "",
+  "author": "chris-skud",
+  "license": "BSD",
+  "dependencies": {}
+}
