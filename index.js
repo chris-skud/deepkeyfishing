@@ -1,5 +1,4 @@
 "use strict";
-var async = require('async');
 
 module.exports = function deepkeyfishing(obj) {
   var keyArr = [];
@@ -13,7 +12,7 @@ module.exports = function deepkeyfishing(obj) {
 
 function _deepKeys(obj, path, keyArr) {
   
-  for (var key in obj) {  // only enumerable props (synchronous :( )
+  for (var key in obj) {  // only enumerable props.
     
     if (typeof obj[key] === 'function') {break;}  // break if function
     
