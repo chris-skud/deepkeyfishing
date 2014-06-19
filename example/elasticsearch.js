@@ -2,19 +2,22 @@ var deepkeyfisher = require('../');
 //var deepkeyfisher = require('../asyncfishing.js');
 var data = require('./elasticsearchdata.js')
 
-function myObj() {
-    this.name = 'Chris';
-    this.howdy = 'howdy';
-}
+var data = {
+    "took":2,
+    "timed_out":false,
+    "_shards": {
+        "total":5,
+        "successful":5,
+        "failed":0
+    },
+    "hits": {
+        "total":6,
+        "max_score":1.0,
+        "hits": []
+    }
+};
 
-myObj.prototype.newProp = 'yay new property';
-myObj.prototype.newFunc = function() {console.log('yes');}
-myObj.prototype.newNull = null;
-myObj.prototype.newUndefined = undefined;
-//console.log(deepkeyfisher(new myObj));
-//console.log('starting a new object');
-
-for (var i=0; i < 1000; i++) {
+for (var i=0; i < 10; i++) {
     var newRec = {
         "_index":"movies",
             "_type":"movie",
@@ -30,17 +33,16 @@ for (var i=0; i < 1000; i++) {
     };
     data.hits.hits.push(newRec);
 }
+
 data["love"] = 'love'; // add a member.
 
-
+// 
 var start = new Date().getTime();
-
 var keys = deepkeyfisher(data);
-
 var end = new Date().getTime();
 var time = end - start;
-//console.log(keys);
 console.log('Execution time: ' + time + 'ms');
+console.log(keys);
 
 
 /*
