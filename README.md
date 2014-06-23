@@ -1,4 +1,4 @@
-keepkeyfishing
+deepkeyfishing
 ==============
 
 Takes any javascript object that is 'typeof object' and returns an array of strings representing all its enumerable keys that terminate at simple values (non object/array). 
