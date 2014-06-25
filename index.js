@@ -14,13 +14,15 @@ function _deepKeys(obj, path, keyArr) {
   
   for (var key in obj) {  // only enumerable props.
     
-    if (typeof obj[key] === 'function') {break;}  // break if function
-    
+    var keyIsNotArrIndex = isNaN(parseInt(key.charAt(0), 10));
     var dot = '.';
+    
+    if (typeof obj[key] === 'function') {break;}  // break if function
+
     if (path === '') {dot = ''}  // if first level, no dot.
 
     if (typeof obj[key] === "object") {  // go deeper  
-      if (isNaN(parseInt(key.charAt(0), 10))) {  // is key array index?
+      if (keyIsNotArrIndex) {
         _deepKeys(obj[key], path + dot + key, keyArr);
       }
       else {
@@ -28,7 +30,7 @@ function _deepKeys(obj, path, keyArr) {
       } 
     }
     else {  // can't go deeper, add to keyArr
-      if (isNaN(parseInt(key.charAt(0), 10))) {
+      if (keyIsNotArrIndex) {
         keyArr.push(path + dot + key);
       }
       else {

@@ -29,9 +29,9 @@ var jsObj = {
     }
 };
 
-// add more records for perf profiling
-/*
-for (var i=0; i < 10000; i++) {
+// add more embedded objs for perf profiling
+var testRecordCount = 100000;
+for (var i=0; i < testRecordCount; i++) {
     var newRec = {
         "_index":"movies",
             "_type":"movie",
@@ -47,20 +47,11 @@ for (var i=0; i < 10000; i++) {
     };
     jsObj.hits.hits.push(newRec);
 }
-*/
 
-
-var keyArray = deepkeyfisher(jsObj);
-console.log(keyArray);
-console.log("the value of key: '" + keyArray[11] + "' is: ");
-console.log(eval('jsObj.' + keyArray[11]));
-
-
-
-/*  If you want to measure perf */
-//var start = new Date().getTime();
-//var keys = deepkeyfisher(jsObj);
-//var end = new Date().getTime();
-//var time = end - start;
-//console.log('Execution time: ' + time + 'ms');
-//console.log(keys);
+/*  measures perf and prints one item in key array */
+var start = new Date().getTime();
+var keys = deepkeyfisher(jsObj);
+var end = new Date().getTime();
+var time = end - start;
+console.log(testRecordCount + ' objects evaluated in ' + time + 'ms');
+console.log("the value of key: '" + keys[11] + "' is: " + eval('jsObj.' + keys[11]));
